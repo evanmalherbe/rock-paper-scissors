@@ -2,17 +2,12 @@
 
 function computerPlay() {
     let randomNum = Math.floor(Math.random() * 3) + 1
-    //console.log(randomNum);
 
-    let shakeResult;
-
-    if (randomNum === 1) { shakeResult = "rock"
+    if (randomNum === 1) { return "rock"
     
-    } else if (randomNum === 2) { shakeResult = "paper" }
+    } else if (randomNum === 2) { return "paper" }
     
-    else { shakeResult = "scissors"}
-
-    //console.log(shakeResult);
+    else {return "scissors"}
 
 }
 
@@ -47,6 +42,6 @@ function playRound(playerSelection,computerSelection) {
 let playerSelection = "ROck";
 let computerSelection = computerPlay();
 
-console.log(playRound(playerSelection,computerSelection));
+console.log(playRound(playerSelection, computerSelection));
 
 
