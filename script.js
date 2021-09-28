@@ -46,8 +46,10 @@ function playRound(playerSelection,computerSelection) {
         ++playerScore;
         return("You win! Scissors beats Paper");
 
-    } else return("I don't recognise your input.");
-
+    } else { 
+        --i; 
+        return("I don't recognise your input.");
+    }
 }
 
 function game() {
@@ -57,11 +59,15 @@ function game() {
         computerSelection = computerPlay();
         playerSelection = prompt("Let's play Rock, Paper, Scissors! Enter your choice:",'');
 
-        alert(playRound(playerSelection.toLowerCase(), computerSelection));
-
-        //console.log("Player Score = " + playerScore + ", Computer Score = " + computerScore);
-        alert("Player Score = " + playerScore + ", Computer Score = " + computerScore);
-    
+        if (playerSelection == null || undefined) { 
+            
+            return; 
+        } else { 
+            alert(playRound(playerSelection.toLowerCase(), computerSelection));
+            //console.log("Player Score = " + playerScore + ", Computer Score = " + computerScore);
+            alert("Player Score = " + playerScore + ", Computer Score = " + computerScore); }
+        
+        console.log(i);
     }
 
     if (playerScore > computerScore) {
@@ -70,7 +76,10 @@ function game() {
     } else if (playerScore < computerScore) {
         alert("You lost the game this time! The score is: computer - " + computerScore + " : player - " + playerScore); 
 
-    } else { alert("The game is a tie! player - " + playerScore + " : computer - " + computerScore); }
+    } else if (playerScore == computerScore) { 
+        alert("The game is a tie! player - " + playerScore + " : computer - " + computerScore); 
+
+    } else {return; }
 
 }
 
